@@ -3,7 +3,7 @@
 			<!-- WEB HOME SLIDER -->
 		<section class="home" id="home">
 		    <div v-for="(sldr , index) in sliderArr" :key="index" :class="[index == sldrIdx ? 'active' : '']" class="slide-container">
-		        <div class="slide" :style="`background:url(/slider/${sldr.bgImg});`">
+		        <div class="slide" :style="`background:url(https://attakus.masoodapp.com/static/slider/${sldr.bgImg});`">
 		            <div class="content">
 		                <span>nike red shoes</span>
 		                <h3>{{ sldr.title }}</h3>
@@ -11,8 +11,8 @@
 		                <a href="#" class="btn">add to cart</a>
 		            </div>
 		            <div class="image">
-		                <img :src="`/slider/${sldr.src}`" class="shoe" alt="">
-		                <img :src="`/slider/${sldr.textImg}`" class="text" alt="">
+		                <img :src="`https://attakus.masoodapp.com/static/slider/${sldr.src}`" class="shoe" alt="">
+		                <img :src="`https://attakus.masoodapp.com/static/slider/${sldr.textImg}`" class="text" alt="">
 		            </div>
 		        </div>
 		    </div>
@@ -30,7 +30,7 @@
 		                <a href="#" class="fas fa-share"></a>
 		                <a href="#" class="fas fa-eye"></a>
 		            </div>
-		            <img :src="`/products/${prod.src}`" alt="">
+		            <img :src="`https://attakus.masoodapp.com/static/products/${prod.src}`" alt="">
 		            <div class="content">
 		                <h3>{{ prod.title }}</h3>
 		                <div class="price">$120.99 <span>$150.99</span></div>
@@ -54,12 +54,12 @@
 		        <div class="image-container">
 		            <div class="small-image">
 		                <img 
-		                	v-for="(gal , indexTwo) in feathr.gall" :key="indexTwo" :src="`/gall/${gal.src}`" @click="chngFeathImg(indexOne,indexTwo)" class="featured-image-1" 
+		                	v-for="(gal , indexTwo) in feathr.gall" :key="indexTwo" :src="`https://attakus.masoodapp.com/static/gall/${gal.src}`" @click="chngFeathImg(indexOne,indexTwo)" class="featured-image-1" 
 		                	:class="indexOne == manProdIndx ? indexTwo == subProdIndx ? 'active' : '' : ''"
 		                >
 		            </div>
 		            <div class="big-image">
-		                <img :src="`/gall/${feathr.src}`" class="big-image-1" alt="">
+		                <img :src="`https://attakus.masoodapp.com/static/gall/${feathr.src}`" class="big-image-1" alt="">
 		            </div>
 		        </div>
 		        <div class="content">
