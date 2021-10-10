@@ -1,83 +1,11 @@
 <template>
 	<div>
 			<!-- WEB HOME SLIDER -->
-		<section class="home" id="home">
-		    <div v-for="(sldr , index) in sliderArr" :key="index" :class="[index == sldrIdx ? 'active' : '']" class="slide-container">
-		        <div class="slide" :style="`background:url(https://attakus.masoodapp.com/static/slider/${sldr.bgImg});`">
-		            <div class="content">
-		                <span>nike red shoes</span>
-		                <h3>{{ sldr.title }}</h3>
-		                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat maiores et eos eaque veritatis aut laboriosam earum dolorem iste atque.</p>
-		                <a href="#" class="btn">add to cart</a>
-		            </div>
-		            <div class="image">
-		                <img :src="`https://attakus.masoodapp.com/static/slider/${sldr.src}`" class="shoe" alt="">
-		                <img :src="`https://attakus.masoodapp.com/static/slider/${sldr.textImg}`" class="text" alt="">
-		            </div>
-		        </div>
-		    </div>
-		    <div id="prev" @click="sldrIdx -= 1">&#8592;</div>
-		    <div id="next" @click="sldrIdx += 1">&#8594;</div>
-		</section>
+		<hero-slider :sliderArr="sliderArr"/>
 			<!-- MY LATEST PRODUCTS DYNAMICS -->
-		<section class="products" id="products">
-		    <h1 class="heading">latest<span>products</span> </h1>
-		    <div class="box-container">
-
-		        <div v-for="(prod , index) in prodsArr" :key="index" class="box">
-		            <div class="icons">
-		                <a href="#" class="fas fa-heart"></a>
-		                <a href="#" class="fas fa-share"></a>
-		                <a href="#" class="fas fa-eye"></a>
-		            </div>
-		            <img :src="`https://attakus.masoodapp.com/static/products/${prod.src}`" alt="">
-		            <div class="content">
-		                <h3>{{ prod.title }}</h3>
-		                <div class="price">$120.99 <span>$150.99</span></div>
-		                <div class="stars">
-		                    <i class="fas fa-star"></i>
-		                    <i class="fas fa-star"></i>
-		                    <i class="fas fa-star"></i>
-		                    <i class="fas fa-star"></i>
-		                    <i class="far fa-star"></i>
-		                </div>
-		                <a href="#" class="btn">add to cart</a>
-		            </div>
-		        </div>
-
-		    </div>
-		</section>
+		<all-product :products="prodsArr"/>
 			<!-- MY FEATHURES PRODUCTS DYNAMICS -->
-		<section class="featured" id="featured">
-		    <h1 class="heading"> <span>featured</span> products </h1>
-		    <div v-for="(feathr , indexOne) in feathProdsArr" :key="indexOne" class="row">
-		        <div class="image-container">
-		            <div class="small-image">
-		                <img 
-		                	v-for="(gal , indexTwo) in feathr.gall" :key="indexTwo" :src="`https://attakus.masoodapp.com/static/gall/${gal.src}`" @click="chngFeathImg(indexOne,indexTwo)" class="featured-image-1" 
-		                	:class="indexOne == manProdIndx ? indexTwo == subProdIndx ? 'active' : '' : ''"
-		                >
-		            </div>
-		            <div class="big-image">
-		                <img :src="`https://attakus.masoodapp.com/static/gall/${feathr.src}`" class="big-image-1" alt="">
-		            </div>
-		        </div>
-		        <div class="content">
-		            <h3>{{ feathr.title }}</h3>
-		            <div class="stars">
-		                <i class="fas fa-star"></i>
-		                <i class="fas fa-star"></i>
-		                <i class="fas fa-star"></i>
-		                <i class="fas fa-star"></i>
-		                <i class="far fa-star"></i>
-		            </div>
-		            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta facilis praesentium odit voluptas illum iure libero quis fuga commodi. Autem.</p>
-		            <div class="price">$80.99 <span>$120.99</span></div>
-		            <a href="#" class="btn">add to cart</a>
-		        </div>
-		    </div>
-		</section>
-
+		<feathr-prods :feathrProds="feathProdsArr"/>
 	</div>
 </template>
 
@@ -88,9 +16,6 @@
 				prodsArr: [],
 				sliderArr: [],
 				feathProdsArr: [],
-				manProdIndx: null,
-				subProdIndx: null,
-				sldrIdx: 0,
 			}
 		},
 		async fetch() {
@@ -177,12 +102,6 @@
 				mySlider.forEach((sldr) => {
 					this.sliderArr.push(sldr)
 				})
-			},
-			chngFeathImg (indexOne,indexTwo) {
-				console.log('console chngFeathImg');
-				this.feathProdsArr[indexOne].src = this.feathProdsArr[indexOne].gall[indexTwo].src;
-				this.manProdIndx = indexOne;
-				this.subProdIndx = indexTwo;
 			},
 		},
 		watch: {
