@@ -12,7 +12,7 @@
 			<div class="product-card">
 				<h2 class="name">{{ cat.title }}</h2>
 				<a class="popup-btn">Quick View</a>
-				<img :src="`/catts/${cat.src}`" class="product-img" alt="">
+				<img :src="`https://attakus.masoodapp.com/static/catts/${cat.src}`" class="product-img" alt="">
 			</div>
 		</div>
 
